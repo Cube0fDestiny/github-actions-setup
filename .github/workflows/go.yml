@@ -21,8 +21,22 @@ jobs:
       with:
         go-version: '1.23.2'
 
-    - name: Build
-      run: go build -v ./...
+    - name: Set up Docker Compose
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y docker-compose
+
+    - name: Build and Start Services
+      run: docker-compose up -d
+
+    - name: Wait for Services to be Ready
+      run: |
+        echo "Waiting for services to be ready..."
+        sleep 10
 
     - name: Test
       run: go test -v ./...
+
+    - name: Tear Down Services
+      if: always()
+      run: docker-compose down -v
