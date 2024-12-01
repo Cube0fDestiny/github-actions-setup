@@ -12,9 +12,9 @@ import (
 
 func TestRegisterAcademicTitle(t *testing.T) {
 
-	//id := "e1e84e89-c064-4e42-887f-7c5aff43348d"
-	//url := fmt.Sprintf("http://localhost:8000/api/scientists/%s", id)
-	url := fmt.Sprintf("http://localhost:8000/healthcheck")
+	id := "e1e84e89-c064-4e42-887f-7c5aff43348d"
+	url := fmt.Sprintf("http://localhost:8000/api/scientists/%s", id)
+	//url := fmt.Sprintf("http://localhost:8000/healthcheck")
 
 	// Wykonaj zapytanie GET
 	resp, err := http.Get(url)
