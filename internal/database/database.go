@@ -34,7 +34,7 @@ func InitDB() (*sqlx.DB, error) {
 		Password: os.Getenv("PGPASSWORD"),
 	}
 	dsn := fmt.Sprintf("host=%s port=%s user=%s dbname=%s password=%s sslmode=require",
-		config.Host, config.Port, config.User, config.Database, config.Password)
+		"localhost", "3306", "root", "", "")
 
 	db, err = sqlx.Connect("postgres", dsn)
 	if err != nil {
