@@ -18,7 +18,6 @@ func TestRegisterAcademicTitle(t *testing.T) {
 	// Wykonaj zapytanie GET
 	resp, err := http.Get(url)
 	if err != nil {
-		fmt.Printf(resp)
 		log.Fatalf("Błąd podczas wysyłania zapytania: %v", err)
 	}
 	defer resp.Body.Close()
