@@ -10,7 +10,7 @@ import (
 	"testing"
 )
 
-func TestRegisterAcademicTitle(t *testing.T) {
+func Testaaaaaaaaaaaaaaaa(t *testing.T) {
 
 	url := fmt.Sprintf("https://localhost:8000/healthcheck")
 
