@@ -29,11 +29,6 @@ jobs:
     - name: Build and Start Services
       run: docker-compose up -d
 
-    - name: Wait for Services to be Ready
-      run: |
-        echo "Waiting for services to be ready..."
-        sleep 10
-
     - name: Test
       run: go test -v ./...
 
