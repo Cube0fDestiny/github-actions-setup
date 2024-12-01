@@ -21,12 +21,16 @@ jobs:
       with:
         go-version: '1.23.2'
       
-    - name: Main
-      run: go run main.go
+    - name: Run main in the background
+      run: |
+          nohup go run main.go & # Run main.go in the background
+          echo $! > main_pid.txt # Save the process ID to a file
+    - name: Wait for main to start
+      run: sleep 5 # Adjust this based on how long main.go takes to be ready
       
     - name: Test
       run: go test -v ./...
 
-    - name: Tear Down Services
-      if: always()
-      run: docker-compose down -v
+    - name: Stop main
+      run: |
+        kill $(cat main_pid.txt) || echo "Process already terminated"
